@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input::-webkit-slider-thumb {
+  border: solid 12px white;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+}
+/* cerca di non scrivere classi tailwind in input.css
+TODO: anziche aggiungere classi, scrivi direttamente stile in linea con javascript */
+.bg-yellow-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 224 71 / var(--tw-bg-opacity)) /* #fde047 */;
+}
+.border-r-yellow-300 {
+  --tw-border-opacity: 1;
+  border-right-color: rgb(253 224 71 / var(--tw-border-opacity)) /* #fde047 */;
+}
