@@ -1,5 +1,8 @@
 # Password generator app
 
+![GitHub Release](https://img.shields.io/github/v/release/Smailen5/fm-password-generator?style=flat-square&logo=github)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/Smailen5/fm-password-generator?style=flat-square&logo=github)
+
 This is a solution to the [Password generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Overview
