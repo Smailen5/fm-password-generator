@@ -6,14 +6,15 @@ Progetto statico (HTML + Tailwind CLI + vanilla JS), **non** un template. Le reg
 
 | Strumento      | Note                                                          |
 | -------------- | ------------------------------------------------------------- |
-| Tailwind v3    | CLI standalone (`npx tailwindcss`), nessun bundler            |
+| pnpm           | `9.14.2` (`packageManager` in `package.json`)                 |
+| Tailwind v3    | CLI standalone (`tailwindcss`), nessun bundler                |
 | Prettier       | Solo plugin Tailwind in `.prettierrc` (nessun override stile) |
 | JetBrains Mono | Font locale in `fonts/`                                       |
 
 ## Comandi
 
 ```bash
-npm run dev    # Tailwind watch: src/input.css → src/output.css
+pnpm dev       # Tailwind watch: src/input.css → src/output.css
 ```
 
 Non c'è un dev server — apri `index.html` direttamente nel browser.
@@ -21,8 +22,8 @@ Non c'è un dev server — apri `index.html` direttamente nel browser.
 Formattazione (se serve):
 
 ```bash
-npx prettier --check .    # verifica
-npx prettier --write .    # applica
+pnpm format:check    # verifica
+pnpm format:fix      # applica
 ```
 
 ## Architettura
