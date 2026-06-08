@@ -60,12 +60,12 @@ navigator.clipboard
   .writeText(password.value)
   .then(() => {
     // Alert che il testo è stato copiato con successo
-    alert("Copied the text: " + password.value);
+    alert('Copied the text: ' + password.value);
   })
-  .catch((error) => {
+  .catch(error => {
     // Gestione degli errori
-    console.error("Unable to copy text: ", error);
-    alert("Unable to copy text: " + error);
+    console.error('Unable to copy text: ', error);
+    alert('Unable to copy text: ' + error);
   });
 ```
 

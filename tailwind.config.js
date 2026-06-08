@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.{html,js}"],
+  content: ['./*.{html,js}'],
   theme: {
     fontFamily: {
-      "jet-brains": ["JetBrains Mono", "monospace"],
+      'jet-brains': ['JetBrains Mono', 'monospace'],
     },
     extend: {
       colors: {
-        "green-custom": "#A4FFAF",
+        'green-custom': '#A4FFAF',
       },
     },
     plugins: [],
