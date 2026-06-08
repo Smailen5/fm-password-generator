@@ -1,41 +1,53 @@
-# DIRETTIVE LOCALI — templates
+# AGENTS.md — Password Generator App
 
-Questo repository è un **template GitHub** per nuovi progetti. Non contiene codice applicativo, solo boilerplate configurabile. Le regole globali in `~/.config/opencode/AGENTS.md` si applicano sempre.
+Progetto statico (HTML + Tailwind CLI + vanilla JS), **non** un template. Le regole globali in `~/.config/opencode/AGENTS.md` si applicano sempre.
+
+## Stack
+
+| Strumento      | Note                                                          |
+| -------------- | ------------------------------------------------------------- |
+| Tailwind v3    | CLI standalone (`npx tailwindcss`), nessun bundler            |
+| Prettier       | Solo plugin Tailwind in `.prettierrc` (nessun override stile) |
+| JetBrains Mono | Font locale in `fonts/`                                       |
 
 ## Comandi
 
 ```bash
-pnpm lint:check        # ESLint
-pnpm lint:fix          # ESLint con fix automatico
-pnpm format:check      # Prettier
-pnpm format:fix        # Prettier con scrittura
-pnpm type-check        # tsc --noEmit
+npm run dev    # Tailwind watch: src/input.css → src/output.css
 ```
 
-Ordine di verifica: `format:check` → `lint:check` → `type-check`.
+Non c'è un dev server — apri `index.html` direttamente nel browser.
 
-## Stack
+Formattazione (se serve):
 
-| Strumento  | Versione / Note                                                                                                                        |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| pnpm       | `9.14.2` (`packageManager` in `package.json`)                                                                                          |
-| TypeScript | 3-file Vite pattern: `tsconfig.json` (root), `tsconfig.app.json` (ES2020+DOM, `src/`), `tsconfig.node.json` (ES2022, `vite.config.ts`) |
-| ESLint     | Flat config, parser TypeScript, plugin Prettier, React opzionale (blocchi segnati `// [React]`)                                        |
-| Prettier   | semi, singleQuote, trailingComma es5, printWidth 80, `prettier-plugin-tailwindcss` incluso                                             |
+```bash
+npx prettier --check .    # verifica
+npx prettier --write .    # applica
+```
 
-## Convenzioni repository
+## Architettura
 
-- **Conventional Commits obbligatori** (`feat:`, `fix:`, `docs:`, `chore:`, `refactor:`, `test:`) — release-please li usa per versionamento
-- **Merge**: solo squash merge via PR, nessun merge commit, history lineare
-- **Branch protection su `main`**: PR obbligatoria, branch up-to-date, linear history, auto-delete head branches
-- **`release-please` remote branch** (`origin/release-please--branches--main--components--templates`) — gestito automaticamente, **non toccarlo**
-- **`.gitignore` è un placeholder** — va sostituito in base allo stack del progetto
-- **`eslint.config.js`** — se non si usa React, rimuovere i blocchi `// [React]` (import, plugins, rules, settings)
-- **Nessun test framework** configurato di default
+- `index.html` — entry point unico, carica `output.css` e `script.js`
+- `src/script.js` — tutta la logica (generazione password, strength, clipboard)
+- `src/input.css` — direttive Tailwind + override slider `/` strength bar
+- `src/output.css` — generato da Tailwind, **committato**
+- `assets/` — immagini (favicon, icone)
+- `fonts/` — JetBrains Mono (variabile weight)
 
-## Issue e PR su GitHub
+## Config stale / morta (da ignorare)
 
-- Leggi sempre i template prima di creare (`.github/ISSUE_TEMPLATE/`, `.github/pull_request_template.md`)
-- Non cancellare issue: usa `gh issue edit`
-- Body lungo → file temporaneo con `--body-file`
-- Usa `bash -c '...'` per `gh issue create` e `gh issue edit` (evita escaping PowerShell)
+| File               | Perché è morto                                                                                  |
+| ------------------ | ----------------------------------------------------------------------------------------------- |
+| `eslint.config.js` | eslint **non installato** (`package.json` non lo elenca) — React blocks inclusi ma inutilizzati |
+| `tsconfig*.json`   | TypeScript e Vite **non installati** — refuso da template                                       |
+| `.prettierignore`  | Riferisce `routeTree.gen.ts`, `CHANGELOG.md` ecc. — non presenti o irrilevanti                  |
+
+Nessun test framework configurato.
+
+## Convenzioni
+
+- Conventional Commits in italiano, solo prefisso senza scope (`feat:`, `fix:`, `docs:`, `chore:`, `refactor:`, `test:`)
+- Release Please su push a `main` (workflow in `.github/workflows/release-please.yml`)
+- PR: squash merge, history lineare, auto-delete branches
+- Issue/PR template in `.github/` — leggi prima di creare
+- `gh issue` / `gh pr` → usa `bash -c '...'` (evita escaping PowerShell coi backtick)
