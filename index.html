@@ -1,51 +1,77 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <title>Frontend Mentor | Password generator app</title>
 
-  <title>Frontend Mentor | Password generator app</title>
+    <link rel="stylesheet" href="./src/output.css" />
+    <script defer src="./src/script.js"></script>
+  </head>
 
-  <link rel="stylesheet" href="./src/output.css" />
-  <script defer src="./src/script.js"></script>
-</head>
+  <body
+    class="flex h-svh flex-col items-center justify-center gap-6 bg-slate-900 font-jet-brains"
+  >
+    <h3 class="text-slate-500">Password Generator</h3>
 
-<body class="font-jet-brains bg-slate-900 flex flex-col justify-center items-center gap-6 h-svh">
-  <h3 class="text-slate-500">Password Generator</h3>
-
-  <div class="grid gap-4 w-2/5 text-white">
-    <!-- Container password -->
-    <div class="bg-gray-600 flex items-center justify-between p-5 px-8">
-      <div>
-        <!-- <p id="password" class="text-3xl"></p> -->
-        <input type="text" name="password" id="password" class="text-3xl text-white bg-gray-600"
-          placeholder="Password here"></input>
+    <div class="grid w-2/5 gap-4 text-white">
+      <!-- Container password -->
+      <div class="flex items-center justify-between bg-gray-600 p-5 px-8">
+        <div>
+          <!-- <p id="password" class="text-3xl"></p> -->
+          <input
+            type="text"
+            name="password"
+            id="password"
+            class="bg-gray-600 text-3xl text-white"
+            placeholder="Password here"
+          />
+        </div>
+        <div>
+          <!-- default fill="#A4FFAF" -->
+          <svg
+            width="21"
+            height="24"
+            xmlns="http://www.w3.org/2000/svg"
+            class="cursor-pointer"
+            id="copy"
+          >
+            <path
+              d="M20.341 3.091 17.909.659A2.25 2.25 0 0 0 16.319 0H8.25A2.25 2.25 0 0 0 6 2.25V4.5H2.25A2.25 2.25 0 0 0 0 6.75v15A2.25 2.25 0 0 0 2.25 24h10.5A2.25 2.25 0 0 0 15 21.75V19.5h3.75A2.25 2.25 0 0 0 21 17.25V4.682a2.25 2.25 0 0 0-.659-1.591ZM12.469 21.75H2.53a.281.281 0 0 1-.281-.281V7.03a.281.281 0 0 1 .281-.281H6v10.5a2.25 2.25 0 0 0 2.25 2.25h4.5v1.969a.282.282 0 0 1-.281.281Zm6-4.5H8.53a.281.281 0 0 1-.281-.281V2.53a.281.281 0 0 1 .281-.281H13.5v4.125c0 .621.504 1.125 1.125 1.125h4.125v9.469a.282.282 0 0 1-.281.281Zm.281-12h-3v-3h.451c.075 0 .147.03.2.082L18.667 4.6a.283.283 0 0 1 .082.199v.451Z"
+              class="fill-green-custom"
+            />
+          </svg>
+        </div>
       </div>
-      <div>
-        <!-- default fill="#A4FFAF" -->
-        <svg width="21" height="24" xmlns="http://www.w3.org/2000/svg" class="cursor-pointer" id="copy">
-          <path
-            d="M20.341 3.091 17.909.659A2.25 2.25 0 0 0 16.319 0H8.25A2.25 2.25 0 0 0 6 2.25V4.5H2.25A2.25 2.25 0 0 0 0 6.75v15A2.25 2.25 0 0 0 2.25 24h10.5A2.25 2.25 0 0 0 15 21.75V19.5h3.75A2.25 2.25 0 0 0 21 17.25V4.682a2.25 2.25 0 0 0-.659-1.591ZM12.469 21.75H2.53a.281.281 0 0 1-.281-.281V7.03a.281.281 0 0 1 .281-.281H6v10.5a2.25 2.25 0 0 0 2.25 2.25h4.5v1.969a.282.282 0 0 1-.281.281Zm6-4.5H8.53a.281.281 0 0 1-.281-.281V2.53a.281.281 0 0 1 .281-.281H13.5v4.125c0 .621.504 1.125 1.125 1.125h4.125v9.469a.282.282 0 0 1-.281.281Zm.281-12h-3v-3h.451c.075 0 .147.03.2.082L18.667 4.6a.283.283 0 0 1 .082.199v.451Z"
-            class="fill-green-custom" />
-        </svg>
-      </div>
-    </div>
-    <!-- Container seconda scheda -->
-    <div class="bg-gray-600 p-8">
-      <!-- Container caratteri -->
-      <div class="flex items-center justify-between pb-4">
-        <div>Character Length</div>
-        <div id="character-length" class="text-3xl text-green-custom">10</div>
-      </div>
-      <!-- Slider value min 1 max 20 -->
-      <input type="range" name="character-range" id="character-range" value="10" step="1" min="1" max="20"
-        class="appearance-none w-full h-2 m-0 p-0 cursor-grab" />
-      <!-- Container checkbox -->
-      <div class="grid gap-3 pt-6" id="checkbox-group">
-        <!----------
+      <!-- Container seconda scheda -->
+      <div class="bg-gray-600 p-8">
+        <!-- Container caratteri -->
+        <div class="flex items-center justify-between pb-4">
+          <div>Character Length</div>
+          <div id="character-length" class="text-3xl text-green-custom">10</div>
+        </div>
+        <!-- Slider value min 1 max 20 -->
+        <input
+          type="range"
+          name="character-range"
+          id="character-range"
+          value="10"
+          step="1"
+          min="1"
+          max="20"
+          class="m-0 h-2 w-full cursor-grab appearance-none p-0"
+        />
+        <!-- Container checkbox -->
+        <div class="grid gap-3 pt-6" id="checkbox-group">
+          <!----------
 
           Qua bisognera aggiungere il colore di background e togliere il bordo al click del label 
 
@@ -54,71 +80,130 @@
           un ringraziamento a https://marek-rozmus.medium.com/styling-checkbox-with-tailwind-46a92c157e2d per la guida di come usare la classe
 
         ---------->
-        <div class="flex items-center gap-4">
-          <input type="checkbox" name="uppercase" id="uppercase"
-            class="appearance-none relative peer w-5 h-5 border-white border-2 checked:bg-green-custom checked:border-0" />
-          <label for="uppercase">Include Uppercase Letters</label>
-          <svg width="14" height="12" xmlns="http://www.w3.org/2000/svg"
-            class="absolute ml-1 hidden peer-checked:block">
-            <path stroke="#18171F" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" />
-          </svg>
-        </div>
+          <div class="flex items-center gap-4">
+            <input
+              type="checkbox"
+              name="uppercase"
+              id="uppercase"
+              class="peer relative h-5 w-5 appearance-none border-2 border-white checked:border-0 checked:bg-green-custom"
+            />
+            <label for="uppercase">Include Uppercase Letters</label>
+            <svg
+              width="14"
+              height="12"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute ml-1 hidden peer-checked:block"
+            >
+              <path
+                stroke="#18171F"
+                stroke-width="3"
+                fill="none"
+                d="M1 5.607 4.393 9l8-8"
+              />
+            </svg>
+          </div>
 
-        <div class="flex items-center gap-4">
-          <input type="checkbox" name="lowercase" id="lowercase"
-            class="appearance-none relative peer w-5 h-5 border-white border-2 checked:bg-green-custom checked:border-0" />
-          <label for="lowercase">Include Lowercase Letters</label>
-          <svg width="14" height="12" xmlns="http://www.w3.org/2000/svg"
-            class="absolute ml-1 hidden peer-checked:block">
-            <path stroke="#18171F" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" />
-          </svg>
-        </div>
+          <div class="flex items-center gap-4">
+            <input
+              type="checkbox"
+              name="lowercase"
+              id="lowercase"
+              class="peer relative h-5 w-5 appearance-none border-2 border-white checked:border-0 checked:bg-green-custom"
+            />
+            <label for="lowercase">Include Lowercase Letters</label>
+            <svg
+              width="14"
+              height="12"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute ml-1 hidden peer-checked:block"
+            >
+              <path
+                stroke="#18171F"
+                stroke-width="3"
+                fill="none"
+                d="M1 5.607 4.393 9l8-8"
+              />
+            </svg>
+          </div>
 
-        <div class="flex items-center gap-4">
-          <input type="checkbox" name="numbers" id="numbers"
-            class="appearance-none relative peer w-5 h-5 border-white border-2 checked:bg-green-custom checked:border-0" />
-          <label for="numbers">Include Numbers</label>
-          <svg width="14" height="12" xmlns="http://www.w3.org/2000/svg"
-            class="absolute ml-1 hidden peer-checked:block">
-            <path stroke="#18171F" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" />
-          </svg>
-        </div>
+          <div class="flex items-center gap-4">
+            <input
+              type="checkbox"
+              name="numbers"
+              id="numbers"
+              class="peer relative h-5 w-5 appearance-none border-2 border-white checked:border-0 checked:bg-green-custom"
+            />
+            <label for="numbers">Include Numbers</label>
+            <svg
+              width="14"
+              height="12"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute ml-1 hidden peer-checked:block"
+            >
+              <path
+                stroke="#18171F"
+                stroke-width="3"
+                fill="none"
+                d="M1 5.607 4.393 9l8-8"
+              />
+            </svg>
+          </div>
 
-        <div class="flex items-center gap-4">
-          <input type="checkbox" name="symbols" id="symbols"
-            class="appearance-none relative peer w-5 h-5 border-white border-2 checked:bg-green-custom checked:border-0" />
-          <label for="symbols">Include Symbols</label>
-          <svg width="14" height="12" xmlns="http://www.w3.org/2000/svg"
-            class="absolute ml-1 hidden peer-checked:block">
-            <path stroke="#18171F" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" />
-          </svg>
-        </div>
-      </div>
-      <!-- Result password strength -->
-      <div class="bg-gray-800 p-5 px-6 my-8 flex items-center justify-between">
-        <div>
-          <p class="uppercase text-slate-400">Strength</p>
-        </div>
-        <!-- container bars -->
-        <div class="flex gap-3">
-          <div id="strength" class="uppercase text-lg mt-2"></div>
-          <!-- Bars to fill -->
-          <div class="flex gap-2">
-            <div id="bar-1" class="border-2 border-white p-1 py-3"></div>
-            <div id="bar-2" class="border-2 border-white p-1 py-3"></div>
-            <div id="bar-3" class="border-2 border-white p-1 py-3"></div>
-            <div id="bar-4" class="border-2 border-white p-1 py-3"></div>
+          <div class="flex items-center gap-4">
+            <input
+              type="checkbox"
+              name="symbols"
+              id="symbols"
+              class="peer relative h-5 w-5 appearance-none border-2 border-white checked:border-0 checked:bg-green-custom"
+            />
+            <label for="symbols">Include Symbols</label>
+            <svg
+              width="14"
+              height="12"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute ml-1 hidden peer-checked:block"
+            >
+              <path
+                stroke="#18171F"
+                stroke-width="3"
+                fill="none"
+                d="M1 5.607 4.393 9l8-8"
+              />
+            </svg>
           </div>
         </div>
+        <!-- Result password strength -->
+        <div
+          class="my-8 flex items-center justify-between bg-gray-800 p-5 px-6"
+        >
+          <div>
+            <p class="uppercase text-slate-400">Strength</p>
+          </div>
+          <!-- container bars -->
+          <div class="flex gap-3">
+            <div id="strength" class="mt-2 text-lg uppercase"></div>
+            <!-- Bars to fill -->
+            <div class="flex gap-2">
+              <div id="bar-1" class="border-2 border-white p-1 py-3"></div>
+              <div id="bar-2" class="border-2 border-white p-1 py-3"></div>
+              <div id="bar-3" class="border-2 border-white p-1 py-3"></div>
+              <div id="bar-4" class="border-2 border-white p-1 py-3"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Button -->
+        <button
+          id="generate"
+          class="flex w-full items-center justify-center gap-3 bg-green-custom p-4 uppercase text-gray-600"
+        >
+          Generate
+          <img
+            src="./assets/images/icon-arrow-right.svg"
+            alt=""
+            class="h-3 w-3"
+          />
+        </button>
       </div>
-      <!-- Button -->
-      <button id="generate"
-        class="bg-green-custom w-full p-4 text-gray-600 uppercase flex items-center  justify-center gap-3">
-        Generate
-        <img src="./assets/images/icon-arrow-right.svg" alt="" class="w-3 h-3" />
-      </button>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
